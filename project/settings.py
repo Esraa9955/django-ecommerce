@@ -76,24 +76,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
-'''
+}'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'products',
-        #'HOST': 'localhost',
-        #'PORT': '5432',
-        #'USER': 'esraa17',
-        #'PASSWORD': '#xxl123',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'USER': 'admin',
+        'PASSWORD': '#xxxl123',
     }
-}'''
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -133,6 +133,12 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
   os.path.join(BASE_DIR,'project/static')
 ]
+
+'''STATIC_URL = 'static/'
+MEDIA_URL ='media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'media')
+
+'''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

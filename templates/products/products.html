@@ -1,7 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for i in pro %}
-<h1>{{i.name}}</h1>
-<h1>{{i.content}}</h1>
-{% endfor %}
+<a href="{%url 'product.add'%}">New product</a>
+<table width="100%" border="1">
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Content</td>
+    <td>catgory</td>
+    <td>image</td>
+    <td>active</td>
+    <td>created</td>
+    <td>updateat</td>
+    <td>prand</td>
+    <td>Actions</td>
+  </tr> 
+  {% for x in pro %}
+  <tr>
+    <td>{{x.id}}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.price}}</td>
+    <td>{{x.content}}</td>
+    <td>{{x.category}}</td>
+    <td>{{x.image}}</td>
+    <td>{{x.active}}</td>
+    <td>{{x.created}}</td>
+    <td>{{x.updateat}}</td>
+    <td>{{x.prand}}</td>
+    <td>
+      <a href="{%url 'product' x.id%}">Dtails</a>
+    </br>
+      <a href="">Update</a>
+     </br>
+      <a href="{%url 'product.delete' x.id%}">delete </a>
+
+    </td>
+  </tr>
+  {% endfor %}
+</table>
 {% endblock content %}
