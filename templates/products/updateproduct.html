@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+Product Upadate
+{% endblock title%}
+{% block content %}
+<form method="post">
+  {% csrf_token%}
+  <label>Name:</label>
+  <input type="text" name="tname" value="{{updateprod.name}}">
+  </br>
+  <label>price:</label>
+  <input type="number" name="tprice" value="{{updateprod.price}}">
+  </br>
+  <label>prand:</label>
+  <input type="text" name="tprand" value="{{updateprod.prand}}">
+  </br>
+  <input type="submit" value="update">
+
+</form>
+<div style="color:red">
+{{msg}}
+</div>
+{% endblock content %} 

@@ -25,4 +25,19 @@ def productdelete(request,id):
   Product.objects.filter(id=id).delete()
   r=reverse("products")
   return HttpResponseRedirect(r)
+
+def productupdate(request,id):
+   
+   obj2=Product.objects.get(id=id)
+   context={'updateprod':obj2}
+   if(request.method=='POST'):
+      if(request.POST['tname']!='' and request.POST['tprice']!=''  and request.POST['tprand']!='' ):
+         Product.objects.filter(id=id).update(name=request.POST['tname'],
+                              price=request.POST['tprice'],
+                              prand= request.POST['tprand'])
+         r=reverse("products")
+         return HttpResponseRedirect(r)
+      else:
+         context['msg']='kindly fill all fileds'
+   return render(request,'products/updateproduct.html',context)
    
