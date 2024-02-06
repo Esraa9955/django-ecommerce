@@ -3,13 +3,16 @@
 New Product 
 {% endblock title%}
 {% block content %}
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   {% csrf_token%}
   <label>Name:</label>
   <input type="text" name="tname">
   </br>
   <label>price:</label>
   <input type="number" name="tprice">
+  </br>
+  <label>image</label>
+  <input type="file" name="timage">
   </br>
   <label>prand:</label>
   <input type="text" name="tprand">

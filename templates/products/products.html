@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <a href="{%url 'product.add'%}">New product</a>
+</br>
+<a href="{%url 'product.addForm'%}">New product with form</a>
 <table width="100%" border="1">
   <tr>
     <td>Id</td>
@@ -22,7 +24,10 @@
     <td>{{x.price}}</td>
     <td>{{x.content}}</td>
     <td>{{x.category}}</td>
-    <td>{{x.image}}</td>
+    <td>
+    <!-- <img  src="/media/{{x.image}}"/>-->
+      <img style="width:30px" src="{{x.getimageurl}}"/> <!--there is a bug here -->
+    </td>
     <td>{{x.active}}</td>
     <td>{{x.created}}</td>
     <td>{{x.updateat}}</td>
@@ -31,6 +36,7 @@
       <a href="{%url 'product' x.id%}">Dtails</a>
     </br>
       <a href="{%url 'product.update' x.id%}">Update</a>
+      
      </br>
       <a href="{%url 'product.delete' x.id%}">delete </a>
 
