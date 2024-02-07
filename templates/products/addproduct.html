@@ -17,6 +17,13 @@ New Product
   <label>prand:</label>
   <input type="text" name="tprand">
   </br>
+  <label for="category">Category:</label>
+  <select name="category" id="category">
+      {% for cat in cat %}
+          <option value="{{ cat.id }}">{{ cat.name }}</option>
+      {% endfor %}
+  </select>
+  <br>
   <input type="submit" value="create">
 
 </form>

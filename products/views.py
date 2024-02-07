@@ -18,7 +18,7 @@ def productadd(request):
                              price=request.POST['tprice'],
                              prand= request.POST['tprand'],
                              image=request.FILES['timage'],
-                             catgory=Category.objects.get(id=request.POST['catgory']))
+                            catgory =Category.objects.get(id=request.POST['category']))
       r=reverse("products")
       #r=reverse("products",args=[1,'as'])
       return HttpResponseRedirect(r)
