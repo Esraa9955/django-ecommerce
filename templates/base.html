@@ -1,6 +1,22 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% include 'parts/navbar.html' %}
+{%if user.id%}
+<div align="center">
+  <h1>welcome {{user}}</h1>
+  <form method="post" action="{%url 'logout'%}">
+    {%csrf_token%}
+    <button type="submit">logout</button>
+  </form>
+  {%else%} 
+  <a href="{%url 'login'%}">login</a>
+</div>
+
+{%endif%}
+{% block title %}
+
+
+{% endblock title%}
 {% block content %}
 {% endblock content %}
 {% include 'parts/footer.html' %}

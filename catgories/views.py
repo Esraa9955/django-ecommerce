@@ -35,6 +35,12 @@ class CategoryListgeneric(ListView):
   template_name='categories/list.html'
   context_object_name='categories'
   
+
+class CategoryCreate(CreateView):
+  model=Category
+  template_name='categories/add.html'
+  form_class=CategoryForm
+  success_url=reverse_lazy('category.all')
 class CategoryUpdateView(View):
   def get(self,request,id):
     print('get class based view')

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',  #this line let django know about my pages app
     'products.apps.ProductsConfig', #this line let django know about my products app
     'catgories.apps.CatgoriesConfig', #this line let django know about my products app
+    'accounts.apps.AccountsConfig',
     'bootstrap5',
 ]
 

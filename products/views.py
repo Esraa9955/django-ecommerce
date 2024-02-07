@@ -2,6 +2,7 @@ from django.shortcuts import render,reverse
 from django.http import HttpResponseRedirect
 from  .models import *
 from .forms import *
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def products(request):
   context={'pro':Product.objects.all()}
@@ -12,6 +13,7 @@ def product(request, id):
     context={'prod':obj1}
     return render(request, 'products/product.html', context)
 
+@login_required( )
 def productadd(request):
    if(request.method=='POST'):
       Product.objects.create(name=request.POST['tname'],
@@ -26,6 +28,7 @@ def productadd(request):
    context={'cat':Category.objects.all()}
    return render(request,'products/addproduct.html',context)
 
+@login_required( )
 def productaddForm(request):
    form=ProductForm()
    context={'form':form}
@@ -43,6 +46,7 @@ def productaddForm(request):
          context['msg']='data not complete'
    return render(request,'products/productaddForm.html',context)
 
+@login_required( )
 def productdelete(request,id):
   Product.objects.filter(id=id).delete()
   r=reverse("products")
