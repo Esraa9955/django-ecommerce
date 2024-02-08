@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig', #this line let django know about my products app
     'catgories.apps.CatgoriesConfig', #this line let django know about my products app
     'accounts.apps.AccountsConfig',
+    'rest_framework',
     'bootstrap5',
 ]
 

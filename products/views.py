@@ -52,6 +52,7 @@ def productdelete(request,id):
   r=reverse("products")
   return HttpResponseRedirect(r)
 
+@login_required( )
 def productupdate(request,id):
    
    obj2=Product.objects.get(id=id)
